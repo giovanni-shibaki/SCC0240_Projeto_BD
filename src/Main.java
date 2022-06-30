@@ -3,12 +3,14 @@ import database.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import forms.dataInsertion;
+
 public class Main {
     public static void main(String[] args) {
         Database db = Database.Instance;
 
-        db.setUsername("");
-        db.setPassword("");
+        db.setUsername("a11796444");
+        db.setPassword("a11796444");
         try {
             ResultSet rs = db.query("SELECT * FROM time");
             while(rs.next())
@@ -17,5 +19,6 @@ public class Main {
             System.out.println("Cant execute query" + e.toString());
         }
 
+        new dataInsertion();
     }
 }
