@@ -27,6 +27,7 @@ public class dataInsertion {
     private JButton btnClear;
     private JButton btnSubmit;
     private JPanel panelButtons;
+    private JFrame frame;
 
     public dataInsertion()
     {
@@ -74,13 +75,10 @@ public class dataInsertion {
                 birthDateMoveMouse();
             }
         });
-    }
 
-    public static void main(String[] args) {
-
-        JFrame frame = new JFrame("dataInsertion");
-        frame.setContentPane(new dataInsertion().panelMain);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame = new JFrame("dataInsertion");
+        frame.setContentPane(panelMain);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setTitle("Trainer Insertion");
         frame.setSize(800, 400);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

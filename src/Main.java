@@ -3,7 +3,7 @@ import database.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import forms.dataInsertion;
+import forms.mainPage;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,6 +19,6 @@ public class Main {
             System.out.println("Cant execute query" + e.toString());
         }
 
-        new dataInsertion();
+        new mainPage();
     }
 }
