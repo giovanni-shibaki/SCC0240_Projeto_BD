@@ -38,7 +38,7 @@
               <background color="-10910812"/>
               <font name="Arial Black" size="16" style="1"/>
               <foreground color="-16777216"/>
-              <text value="Insert a new Pokémon"/>
+              <text value="Insert a new Trainer"/>
             </properties>
           </component>
           <component id="d4f82" class="javax.swing.JButton" binding="btnQuery">

@@ -46,27 +46,11 @@
               <text value="Name"/>
             </properties>
           </component>
-          <component id="ab572" class="javax.swing.JCheckBox" binding="cbName">
-            <constraints>
-              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value=""/>
-            </properties>
-          </component>
           <component id="f0da4" class="javax.swing.JTextField" binding="txtName">
             <constraints>
               <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
-            </constraints>
-            <properties>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="1b74" class="javax.swing.JCheckBox" binding="cbNumber">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value=""/>
@@ -79,14 +63,6 @@
             <properties>
               <font name="Arial Black" size="20"/>
               <text value="Number"/>
-            </properties>
-          </component>
-          <component id="c10ac" class="javax.swing.JCheckBox" binding="cbType1">
-            <constraints>
-              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value=""/>
             </properties>
           </component>
           <component id="f7cab" class="javax.swing.JLabel" binding="lblType1">
@@ -105,14 +81,6 @@
               </grid>
             </constraints>
             <properties/>
-          </component>
-          <component id="b4ecc" class="javax.swing.JCheckBox" binding="cbType2">
-            <constraints>
-              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value=""/>
-            </properties>
           </component>
           <component id="4d4aa" class="javax.swing.JLabel" binding="lblType2">
             <constraints>
@@ -141,16 +109,6 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="15297" class="javax.swing.JButton" binding="btnClear">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="182" height="30"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <text value="Clear Fields"/>
-                </properties>
-              </component>
               <component id="61f7c" class="javax.swing.JButton" binding="btnSubmit">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false">
@@ -161,15 +119,25 @@
                   <text value="Submit Query"/>
                 </properties>
               </component>
+              <component id="15297" class="javax.swing.JButton" binding="btnClear">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="182" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="Clear Fields"/>
+                </properties>
+              </component>
             </children>
           </grid>
-          <component id="5685c" class="javax.swing.JSpinner" binding="spnNumber">
+          <component id="3d747" class="javax.swing.JFormattedTextField" binding="ftxtNumber">
             <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
             </constraints>
-            <properties>
-              <font name="Arial Black" size="14" style="1"/>
-            </properties>
+            <properties/>
           </component>
         </children>
       </grid>

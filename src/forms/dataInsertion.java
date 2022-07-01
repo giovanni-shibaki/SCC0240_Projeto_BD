@@ -45,13 +45,16 @@ public class dataInsertion {
                 // Verificar se os dados são válidos
 
                 // Verificar se o campo CPF (obrigatório) não está preenchido
-                if(!checkCPF())
+                if(!checkCPF()) {
                     JOptionPane.showMessageDialog(null, "Por favor insira um número válido de CPF!");
+                    return;
+                }
 
                 // Verificar data
-                if(!checkBirthDate())
+                if(!checkBirthDate()) {
                     JOptionPane.showMessageDialog(null, "A data inserida é inválida!");
-
+                    return;
+                }
                 insertData();
             }
         });
@@ -135,7 +138,7 @@ public class dataInsertion {
         if(cpf.compareTo("000-000-000-00") == 0)
             return false;
         // Verificar se todos os caracteres estão preenchidos
-        for(int i=0; i < cpf.length()-1; i++)
+        for(int i=0; i < cpf.length(); i++)
             if(!(cpf.charAt(i) == '-' || Character.isDigit(cpf.charAt(i))))
                 return false;
         return true;
@@ -150,10 +153,10 @@ public class dataInsertion {
         else if(this.cmbGender.getSelectedItem().toString().compareTo("Female") == 0)
             gender = 'F';
         else
-            gender = ' ';
+            gender = 'O';
 
         try {
-            insertTrainer inst = new insertTrainer(this.ftxtCPF.getText(), this.txtName.getText(), gender, this.ftxtDate.getText(), this.txtHomeTown.getText(), this.cmbTitle.getSelectedItem().toString());
+            insertTrainer inst = new insertTrainer(this.ftxtCPF.getText(), this.txtName.getText(), gender, this.ftxtDate.getText().compareTo("  /  /    ") == 0 ? null : this.ftxtDate.getText(), this.txtHomeTown.getText(), this.cmbTitle.getSelectedItem().toString());
             inst.insert();
         } catch (Exception e)
         {
