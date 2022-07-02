@@ -10,6 +10,7 @@ import java.sql.Types;
 import database.Querries;
 import models.Pokemon;
 import database.Database;
+import forms.pokemonList;
 
 public class selectPokemon {
 
@@ -35,7 +36,7 @@ public class selectPokemon {
         ResultSet rs;
 
         try{
-            stmt = db.prepareStatement(sql);
+            stmt = db.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             if (pokemon.number != null) {
                 stmt.setInt(1, pokemon.number);
             } else {
@@ -48,14 +49,13 @@ public class selectPokemon {
             stmt.setString(6, pokemon.type1);
 
             rs = stmt.executeQuery();
-            while(rs.next()) {
-                System.out.println(rs.getString("Nome"));
-            }
+
+            // Se a query retornar resultados, chamar a classe pokemonList enviando o ResultSet para mostrar
+            new pokemonList(rs);
+
+            rs.close();
         } catch (Exception e) {
             System.out.println("Erro selectPokemon: " + e.getMessage());
         }
-
-        // Se a query retornar resultados, chamar a classe pokemonList enviando o ResultSet para mostrar
-
     }
 }

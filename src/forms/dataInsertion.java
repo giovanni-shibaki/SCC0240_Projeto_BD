@@ -46,16 +46,18 @@ public class dataInsertion {
 
                 // Verificar se o campo CPF (obrigatório) não está preenchido
                 if(!checkCPF()) {
-                    JOptionPane.showMessageDialog(null, "Por favor insira um número válido de CPF!");
+                    JOptionPane.showMessageDialog(null, "Por favor insira um número válido de CPF!", "CPF Inválido", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
                 // Verificar data
                 if(!checkBirthDate()) {
-                    JOptionPane.showMessageDialog(null, "A data inserida é inválida!");
+                    JOptionPane.showMessageDialog(null, "A data inserida é inválida!", "Data Inválida", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 insertData();
+                JOptionPane.showMessageDialog(null, "Treinador inserido com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+                clearFields();
             }
         });
         btnClear.addActionListener(new ActionListener() {

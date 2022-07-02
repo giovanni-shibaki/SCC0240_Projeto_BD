@@ -22,7 +22,6 @@ public class dataQuery {
     private JButton btnSubmit;
     private JPanel panelButtons;
     private JFormattedTextField ftxtNumber;
-    private JSpinner spnNumber;
     private JFrame frame;
 
     public dataQuery()
@@ -66,14 +65,6 @@ public class dataQuery {
         });
     }
 
-    private void checkNumberValue()
-    {
-        if(Integer.parseInt(this.spnNumber.getValue().toString()) > 1000000)
-            this.spnNumber.setValue(1000000);
-        if(Integer.parseInt(this.spnNumber.getValue().toString()) < 0)
-            this.spnNumber.setValue(0);
-    }
-
     private void clearFields()
     {
         this.ftxtNumber.setText("");
@@ -90,6 +81,13 @@ public class dataQuery {
 
     private void queryPokemon()
     {
+        // Checar se pelo menos 1 dos parametros de busca está preenchido
+        if((this.ftxtNumber.getText().compareTo("       ") == 0 || this.ftxtNumber.getText().compareTo("") == 0) && this.txtName.getText().compareTo("") == 0 && this.txtType1.getText().compareTo("") == 0 && this.txtType2.getText().compareTo("") == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Por favor preencha pelo menos um parâmetro de busca!", "Parametros inválidos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         try {
             //public selectPokemon(Integer number, String name, String type1, String type2)
             selectPokemon inst = new selectPokemon(this.ftxtNumber.getText().trim().compareTo("") == 0 ? null : Integer.parseInt(this.ftxtNumber.getText().trim()), this.txtName.getText(), this.txtType1.getText(), this.txtType2.getText());
