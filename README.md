@@ -37,7 +37,7 @@ Os itens são todos os tipos de produtos que um treinador pode ter. Cada tipo de
 Os pertences são com bens de cada treinador. Cada pertence corresponde a um item em determinada quantidade. Cada pertence pode ser utilizado somente uma vez e possui registro de uso em batalha quando utilizado durante um combate.
 
 ## Implantação da base de dados e implementação do Sistema
-Utilizamos o Intellij para oferecer uma interface gráfica e user friendly para realizar o protótipo operacional, usando linguagem Java em conjunto com o SGBD Relacional Oracle.
+Utilizamos o Intellij para oferecer uma interface gráfica e user friendly para realizar o protótipo operacional e na aplicação desenvolvida utilizou-se o SGBD relacional Oracle disponibilizado pela professora da disciplina, além da linguagem Java na versão Oracle OpenJDK 17.0.2. De forma a possibilitar a conexão entre a aplicação e a base de dados, fez-se uso do Driver Oracle JDBC. O código executável se encontra no diretório SCC0240_Projeto_BD\out\artifacts\PokemonDB_jar. Para executar, basta realizar o seguinte comando: <java -jar PokemonDB.jar>.
 
 ### Funcionalidade de Cadastro
 Para a funcionalidade de cadastro, a query selecionada foi a de adição de um novo treinador no sistema, em que a interface verifica se os dados estão no formato certo, e há a verificação para não inserir dois treinadores com mesma chave (CPF), aceitando valores nulos para atributos não chave.
