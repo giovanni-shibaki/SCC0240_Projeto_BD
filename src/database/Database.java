@@ -26,7 +26,6 @@ public class Database implements Closeable {
 
             db = connect();
             Instance = db;
-            System.out.println(Instance);
         } catch(SQLException e) {
             System.out.println(e.toString());
         }

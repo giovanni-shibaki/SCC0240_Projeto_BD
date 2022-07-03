@@ -34,25 +34,21 @@ public class insertTrainer {
         trainer.title = title;
     }
 
-    public void insert()
+    public void insert() throws SQLException
     {
         // Lembrar de checar o campo gender, se ele conter ' ' colocar nulo no banco
 
         String sql = Querries.InsertTrainer;
         PreparedStatement stmt;
 
-        try{
-            stmt = db.prepareStatement(sql);
-            stmt.setString(1, trainer.cpf);
-            stmt.setString(2, trainer.name);
-            stmt.setString(3, Character.toString(trainer.gender));
-            stmt.setString(4, trainer.birthDate);
-            stmt.setString(5, trainer.homeTown);
-            stmt.setString(6, trainer.title);
+        stmt = db.prepareStatement(sql);
+        stmt.setString(1, trainer.cpf);
+        stmt.setString(2, trainer.name);
+        stmt.setString(3, Character.toString(trainer.gender));
+        stmt.setString(4, trainer.birthDate);
+        stmt.setString(5, trainer.homeTown);
+        stmt.setString(6, trainer.title);
 
-            stmt.execute();
-        } catch (Exception e) {
-            System.out.println("Erro insertTrainer: " + e.getMessage());
-        }
+        stmt.execute();
     }
 }

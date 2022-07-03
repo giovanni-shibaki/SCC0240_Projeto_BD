@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,9 +56,15 @@ public class dataInsertion {
                     JOptionPane.showMessageDialog(null, "A data inserida é inválida!", "Data Inválida", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                insertData();
-                JOptionPane.showMessageDialog(null, "Treinador inserido com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
-                clearFields();
+                try {
+                    insertData();
+                    JOptionPane.showMessageDialog(null, "Treinador inserido com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+                    clearFields();
+                } catch (SQLException ex) {
+                    if (ex.getErrorCode() == 1) {
+                        JOptionPane.showMessageDialog(null, "CPF ja cadastrado", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
             }
         });
         btnClear.addActionListener(new ActionListener() {
@@ -146,7 +153,7 @@ public class dataInsertion {
         return true;
     }
 
-    private void insertData()
+    private void insertData() throws SQLException
     {
         // Enviar os dados preenchidos para a classe insertTrainer
         char gender;
@@ -157,12 +164,7 @@ public class dataInsertion {
         else
             gender = 'O';
 
-        try {
-            insertTrainer inst = new insertTrainer(this.ftxtCPF.getText(), this.txtName.getText(), gender, this.ftxtDate.getText().compareTo("  /  /    ") == 0 ? null : this.ftxtDate.getText(), this.txtHomeTown.getText(), this.cmbTitle.getSelectedItem().toString());
-            inst.insert();
-        } catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
+        insertTrainer inst = new insertTrainer(this.ftxtCPF.getText(), this.txtName.getText(), gender, this.ftxtDate.getText().compareTo("  /  /    ") == 0 ? null : this.ftxtDate.getText(), this.txtHomeTown.getText(), this.cmbTitle.getSelectedItem().toString());
+        inst.insert();
     }
 }
